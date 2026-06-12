@@ -1,5 +1,32 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-12T16:07:49Z",
-  "matches": []
+  "updated": "2026-06-12T16:24:32Z",
+  "matches": [
+    {
+      "team1": "Mexico",
+      "team2": "South Africa",
+      "date": "2026-06-11",
+      "score": {
+        "ft": [
+          2,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "South Korea",
+      "team2": "Czechia",
+      "date": "2026-06-11",
+      "score": {
+        "ft": [
+          2,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    }
+  ]
 }
