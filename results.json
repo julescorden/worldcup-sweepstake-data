@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-13T20:50:33Z",
+  "updated": "2026-06-14T08:57:15Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -32,6 +32,32 @@
       "team1": "Canada",
       "team2": "Bosnia and Herzegovina",
       "date": "2026-06-12",
+      "score": {
+        "ft": [
+          1,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Switzerland",
+      "team2": "Qatar",
+      "date": "2026-06-13",
+      "score": {
+        "ft": [
+          1,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Brazil",
+      "team2": "Morocco",
+      "date": "2026-06-13",
       "score": {
         "ft": [
           1,
