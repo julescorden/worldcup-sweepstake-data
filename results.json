@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-14T15:30:05Z",
+  "updated": "2026-06-14T20:42:24Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -68,12 +68,51 @@
       "goals2": []
     },
     {
+      "team1": "Scotland",
+      "team2": "Haiti",
+      "date": "2026-06-13",
+      "score": {
+        "ft": [
+          1,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
       "team1": "United States",
       "team2": "Paraguay",
       "date": "2026-06-12",
       "score": {
         "ft": [
           4,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Australia",
+      "team2": "Türkiye",
+      "date": "2026-06-13",
+      "score": {
+        "ft": [
+          2,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Germany",
+      "team2": "Curaçao",
+      "date": "2026-06-14",
+      "score": {
+        "ft": [
+          7,
           1
         ]
       },
