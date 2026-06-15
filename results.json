@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-15T16:28:25Z",
+  "updated": "2026-06-15T23:21:32Z",
   "source": "openfootball",
   "matches": [
     {
@@ -154,6 +154,32 @@
         "ft": [
           5,
           1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Belgium",
+      "team2": "Egypt",
+      "date": "2026-06-15",
+      "score": {
+        "ft": [
+          1,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Spain",
+      "team2": "Cape Verde",
+      "date": "2026-06-15",
+      "score": {
+        "ft": [
+          0,
+          0
         ]
       },
       "goals1": [],
