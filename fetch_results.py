@@ -1,169 +1,141 @@
 #!/usr/bin/env python3
 """
-Daily fetch script for Corden Cleeeerrrrb World Cup sweepstake.
+Fetches finished World Cup 2026 match results and writes a compact results.json
+that the Squarespace page (wc-draw.html) reads.
 
-Pulls match results from Yahoo Sports' 2026 World Cup schedule article, which
-keeps a consistent format for every group ("Thursday, June 11: Mexico 2,
-South Africa 0") and is updated throughout the tournament.
-
-Runs on GitHub Actions twice a day. Free, no API key.
+Strategy:
+  1. Try openfootball/worldcup.json on GitHub first.  It's a public JSON
+     file maintained by hand by an active maintainer, updates within hours
+     of each match finishing, and needs no scraping or API key.
+  2. If openfootball returns no usable data, fall back to scraping the
+     Yahoo Sports schedule article (the original source).
+  3. Never overwrite a good results.json with an empty parse.  If both
+     sources fail or come back empty, the existing file is left alone.
 """
 
-import datetime
 import json
 import re
 import sys
 import urllib.request
-from html.parser import HTMLParser
+from datetime import datetime, timezone
 
-YAHOO_URL = (
-    "https://sports.yahoo.com/soccer/article/"
-    "2026-world-cup-schedule-teams-group-stage-match-dates-fixtures-"
-    "how-to-watch-050724300.html"
-)
-USER_AGENT = (
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/120.0 Safari/537.36 CordenCleerrrbBot/1.0"
-)
+OPENFOOTBALL_URL = "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json"
+YAHOO_URL = "https://sports.yahoo.com/soccer/article/2026-world-cup-schedule-qualified-teams-groups-match-dates-fixtures-how-to-watch-050724214.html"
 
-NAME_FIX = {
-    "Korea Republic": "South Korea",
-    "Cabo Verde": "Cape Verde",
-    "Cote d'Ivoire": "Ivory Coast",
+USER_AGENT = "Mozilla/5.0 (compatible; CordenCleerrrbBot/1.0; +https://github.com/julescorden/worldcup-sweepstake-data)"
+
+TEAM_NAME_MAP = {
     "Czech Republic": "Czechia",
+    "Bosnia & Herzegovina": "Bosnia and Herzegovina",
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina",
     "Turkey": "Türkiye",
     "USA": "United States",
-}
-
-TEAMS = {
-    "Algeria", "Argentina", "Australia", "Austria", "Belgium",
-    "Bosnia and Herzegovina", "Brazil", "Canada", "Cape Verde", "Colombia",
-    "Croatia", "Curaçao", "Czechia", "DR Congo", "Ecuador", "Egypt",
-    "England", "France", "Germany", "Ghana", "Haiti", "Iran", "Iraq",
-    "Ivory Coast", "Japan", "Jordan", "Mexico", "Morocco", "Netherlands",
-    "New Zealand", "Norway", "Panama", "Paraguay", "Portugal", "Qatar",
-    "Saudi Arabia", "Scotland", "Senegal", "South Africa", "South Korea",
-    "Spain", "Sweden", "Switzerland", "Tunisia", "Türkiye", "United States",
-    "Uruguay", "Uzbekistan",
+    "Korea Republic": "South Korea",
+    "Cape Verde Islands": "Cape Verde",
+    "Cabo Verde": "Cape Verde",
+    "Côte d'Ivoire": "Ivory Coast",
+    "Cote d'Ivoire": "Ivory Coast",
+    "Curacao": "Curaçao",
 }
 
 
-def fix_name(s: str) -> str:
-    s = s.strip()
-    return NAME_FIX.get(s, s)
+def normalise(name):
+    n = (name or "").strip()
+    return TEAM_NAME_MAP.get(n, n)
 
 
-def fetch(url: str) -> str:
+def fetch(url, timeout=30):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=30) as resp:
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read().decode("utf-8", errors="replace")
 
 
-class TextExtractor(HTMLParser):
-    BLOCK_TAGS = {"br", "p", "li", "div", "tr", "h1", "h2", "h3", "h4"}
-
-    def __init__(self):
-        super().__init__()
-        self.parts = []
-        self.skip = 0
-
-    def handle_starttag(self, tag, attrs):
-        if tag in ("script", "style", "noscript"):
-            self.skip += 1
-        if tag in self.BLOCK_TAGS:
-            self.parts.append("\n")
-
-    def handle_endtag(self, tag):
-        if tag in ("script", "style", "noscript"):
-            self.skip = max(0, self.skip - 1)
-        if tag in self.BLOCK_TAGS:
-            self.parts.append("\n")
-
-    def handle_data(self, data):
-        if self.skip:
-            return
-        self.parts.append(data)
-
-    def text(self):
-        return "".join(self.parts)
-
-
-SORTED_TEAMS = sorted(TEAMS | set(NAME_FIX), key=len, reverse=True)
-TEAM_ALTERNATION = "|".join(re.escape(t) for t in SORTED_TEAMS)
-RESULT_RE = re.compile(
-    r"(?P<weekday>Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"
-    r",\s+(?P<month>January|February|March|April|May|June|July|August|"
-    r"September|October|November|December)"
-    r"\s+(?P<day>\d{1,2})"
-    r"[^:\n]*:\s*"  # tolerate ", time (channel)" or similar between date and colon
-    r"(?P<t1>" + TEAM_ALTERNATION + r")"
-    r"\s+(?P<s1>\d{1,2})\s*,\s+"
-    r"(?P<t2>" + TEAM_ALTERNATION + r")"
-    r"\s+(?P<s2>\d{1,2})",
-    re.IGNORECASE,
-)
-
-
-def parse_matches(html: str):
-    ex = TextExtractor()
-    ex.feed(html)
-    text = ex.text()
-    flat = re.sub(r"\s+", " ", text)
-
-    matches = []
-    seen = set()
-    for m in RESULT_RE.finditer(flat):
-        t1 = fix_name(m.group("t1"))
-        t2 = fix_name(m.group("t2"))
-        if t1 not in TEAMS or t2 not in TEAMS or t1 == t2:
+def parse_openfootball():
+    try:
+        raw = fetch(OPENFOOTBALL_URL)
+        data = json.loads(raw)
+    except Exception as e:
+        print("openfootball fetch/parse failed: " + str(e), file=sys.stderr)
+        return []
+    out = []
+    for m in data.get("matches", []):
+        score = (m.get("score") or {}).get("ft")
+        if not score or len(score) != 2:
             continue
         try:
-            date = datetime.datetime.strptime(
-                f"{m.group('day')} {m.group('month')} 2026", "%d %B %Y"
-            ).date().isoformat()
-        except ValueError:
+            s1, s2 = int(score[0]), int(score[1])
+        except (TypeError, ValueError):
             continue
-        key = (date, t1, t2)
-        if key in seen:
-            continue
-        seen.add(key)
-        matches.append({
-            "team1": t1,
-            "team2": t2,
-            "date": date,
-            "score": {"ft": [int(m.group("s1")), int(m.group("s2"))]},
+        out.append({
+            "team1": normalise(m.get("team1", "")),
+            "team2": normalise(m.get("team2", "")),
+            "date": m.get("date", ""),
+            "score": {"ft": [s1, s2]},
             "goals1": [],
             "goals2": [],
         })
-    return matches
+    return out
 
 
-def build_output(found):
+YAHOO_RESULT_RE = re.compile(
+    r"\b([A-Z][A-Za-zA-\u017f' .\-]+?)\s+(\d+)\s*,\s+([A-Z][A-Za-zA-\u017f' .\-]+?)\s+(\d+)\b"
+)
+
+
+def parse_yahoo():
+    try:
+        html = fetch(YAHOO_URL)
+    except Exception as e:
+        print("Yahoo fetch failed: " + str(e), file=sys.stderr)
+        return []
+    text = re.sub(r"<[^>]+>", " ", html)
+    text = re.sub(r"\s+", " ", text)
+    out = []
+    seen = set()
+    for m in YAHOO_RESULT_RE.finditer(text):
+        t1, s1, t2, s2 = m.group(1).strip(), m.group(2), m.group(3).strip(), m.group(4)
+        if len(t1) < 3 or len(t2) < 3:
+            continue
+        if any(c.isdigit() for c in t1 + t2):
+            continue
+        key = (t1, t2)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append({
+            "team1": normalise(t1),
+            "team2": normalise(t2),
+            "date": "",
+            "score": {"ft": [int(s1), int(s2)]},
+            "goals1": [],
+            "goals2": [],
+        })
+    return out
+
+
+def build_output(matches, source):
     return {
         "name": "World Cup 2026",
-        "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "matches": found,
+        "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "source": source,
+        "matches": matches,
     }
 
 
 def main():
-    try:
-        html = fetch(YAHOO_URL)
-    except Exception as e:
-        print(f"Failed to fetch Yahoo: {e}", file=sys.stderr)
-        sys.exit(1)
-    found = parse_matches(html)
-    if not found:
-        # Don't overwrite a good file with an empty one. Exit successfully
-        # with a clear message so the workflow doesn't commit nothing.
-        print("Parsed 0 matches - leaving existing results.json untouched.")
+    matches = parse_openfootball()
+    source = "openfootball"
+    if not matches:
+        print("openfootball returned no matches; trying Yahoo fallback", file=sys.stderr)
+        matches = parse_yahoo()
+        source = "yahoo"
+    if not matches:
+        print("Both sources returned empty - leaving existing results.json untouched.")
         return
-    out = build_output(found)
+    out = build_output(matches, source)
     with open("results.json", "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
-    print(f"Wrote results.json with {len(found)} matches")
-    for m in found:
-        print(f"  {m['date']}  {m['team1']} {m['score']['ft'][0]}-{m['score']['ft'][1]} {m['team2']}")
+    print("Wrote results.json with " + str(len(matches)) + " matches from " + source)
 
 
 if __name__ == "__main__":
