@@ -1,6 +1,7 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-14T20:42:24Z",
+  "updated": "2026-06-15T14:54:51Z",
+  "source": "openfootball",
   "matches": [
     {
       "team1": "Mexico",
@@ -42,8 +43,8 @@
       "goals2": []
     },
     {
-      "team1": "Switzerland",
-      "team2": "Qatar",
+      "team1": "Qatar",
+      "team2": "Switzerland",
       "date": "2026-06-13",
       "score": {
         "ft": [
@@ -68,13 +69,13 @@
       "goals2": []
     },
     {
-      "team1": "Scotland",
-      "team2": "Haiti",
+      "team1": "Haiti",
+      "team2": "Scotland",
       "date": "2026-06-13",
       "score": {
         "ft": [
-          1,
-          0
+          0,
+          1
         ]
       },
       "goals1": [],
@@ -113,6 +114,45 @@
       "score": {
         "ft": [
           7,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Ivory Coast",
+      "team2": "Ecuador",
+      "date": "2026-06-14",
+      "score": {
+        "ft": [
+          1,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Netherlands",
+      "team2": "Japan",
+      "date": "2026-06-14",
+      "score": {
+        "ft": [
+          2,
+          2
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Sweden",
+      "team2": "Tunisia",
+      "date": "2026-06-14",
+      "score": {
+        "ft": [
+          5,
           1
         ]
       },
