@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-17T13:03:52Z",
+  "updated": "2026-06-17T21:25:49Z",
   "source": "openfootball",
   "matches": [
     {
@@ -257,6 +257,19 @@
       "score": {
         "ft": [
           3,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Portugal",
+      "team2": "DR Congo",
+      "date": "2026-06-17",
+      "score": {
+        "ft": [
+          1,
           1
         ]
       },
