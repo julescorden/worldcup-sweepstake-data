@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-18T21:15:04Z",
+  "updated": "2026-06-19T12:36:02Z",
   "source": "openfootball",
   "matches": [
     {
@@ -43,6 +43,19 @@
       "goals2": []
     },
     {
+      "team1": "Mexico",
+      "team2": "South Korea",
+      "date": "2026-06-18",
+      "score": {
+        "ft": [
+          1,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
       "team1": "Canada",
       "team2": "Bosnia and Herzegovina",
       "date": "2026-06-12",
@@ -76,6 +89,19 @@
         "ft": [
           4,
           1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Canada",
+      "team2": "Qatar",
+      "date": "2026-06-18",
+      "score": {
+        "ft": [
+          6,
+          0
         ]
       },
       "goals1": [],
