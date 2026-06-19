@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-19T19:17:08Z",
+  "updated": "2026-06-19T22:39:29Z",
   "source": "openfootball",
   "matches": [
     {
@@ -150,6 +150,19 @@
       "team1": "Australia",
       "team2": "Türkiye",
       "date": "2026-06-13",
+      "score": {
+        "ft": [
+          2,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "United States",
+      "team2": "Australia",
+      "date": "2026-06-19",
       "score": {
         "ft": [
           2,
