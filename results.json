@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-20T16:03:17Z",
+  "updated": "2026-06-20T20:55:00Z",
   "source": "openfootball",
   "matches": [
     {
@@ -254,6 +254,19 @@
       "team1": "Sweden",
       "team2": "Tunisia",
       "date": "2026-06-14",
+      "score": {
+        "ft": [
+          5,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Netherlands",
+      "team2": "Sweden",
+      "date": "2026-06-20",
       "score": {
         "ft": [
           5,
