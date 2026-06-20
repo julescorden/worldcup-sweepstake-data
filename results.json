@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-19T22:39:29Z",
+  "updated": "2026-06-20T10:15:43Z",
   "source": "openfootball",
   "matches": [
     {
@@ -134,6 +134,32 @@
       "goals2": []
     },
     {
+      "team1": "Scotland",
+      "team2": "Morocco",
+      "date": "2026-06-19",
+      "score": {
+        "ft": [
+          0,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Brazil",
+      "team2": "Haiti",
+      "date": "2026-06-19",
+      "score": {
+        "ft": [
+          3,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
       "team1": "United States",
       "team2": "Paraguay",
       "date": "2026-06-12",
@@ -167,6 +193,19 @@
         "ft": [
           2,
           0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Türkiye",
+      "team2": "Paraguay",
+      "date": "2026-06-19",
+      "score": {
+        "ft": [
+          0,
+          1
         ]
       },
       "goals1": [],
