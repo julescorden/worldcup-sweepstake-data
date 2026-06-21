@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-20T20:55:00Z",
+  "updated": "2026-06-21T10:48:30Z",
   "source": "openfootball",
   "matches": [
     {
@@ -238,6 +238,32 @@
       "goals2": []
     },
     {
+      "team1": "Germany",
+      "team2": "Ivory Coast",
+      "date": "2026-06-20",
+      "score": {
+        "ft": [
+          2,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Ecuador",
+      "team2": "Curaçao",
+      "date": "2026-06-20",
+      "score": {
+        "ft": [
+          0,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
       "team1": "Netherlands",
       "team2": "Japan",
       "date": "2026-06-14",
@@ -271,6 +297,19 @@
         "ft": [
           5,
           1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Tunisia",
+      "team2": "Japan",
+      "date": "2026-06-20",
+      "score": {
+        "ft": [
+          0,
+          4
         ]
       },
       "goals1": [],
