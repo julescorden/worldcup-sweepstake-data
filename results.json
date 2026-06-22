@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-22T16:18:36Z",
+  "updated": "2026-06-22T22:28:00Z",
   "source": "openfootball",
   "matches": [
     {
@@ -466,6 +466,19 @@
         "ft": [
           3,
           1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Austria",
+      "date": "2026-06-22",
+      "score": {
+        "ft": [
+          2,
+          0
         ]
       },
       "goals1": [],
