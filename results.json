@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-25T23:01:58Z",
+  "updated": "2026-06-26T10:39:03Z",
   "source": "openfootball",
   "matches": [
     {
@@ -290,6 +290,32 @@
       "goals2": []
     },
     {
+      "team1": "Türkiye",
+      "team2": "United States",
+      "date": "2026-06-25",
+      "score": {
+        "ft": [
+          3,
+          2
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Paraguay",
+      "team2": "Australia",
+      "date": "2026-06-25",
+      "score": {
+        "ft": [
+          0,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
       "team1": "Germany",
       "team2": "Curaçao",
       "date": "2026-06-14",
@@ -414,6 +440,32 @@
         "ft": [
           0,
           4
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Japan",
+      "team2": "Sweden",
+      "date": "2026-06-25",
+      "score": {
+        "ft": [
+          1,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Tunisia",
+      "team2": "Netherlands",
+      "date": "2026-06-25",
+      "score": {
+        "ft": [
+          1,
+          3
         ]
       },
       "goals1": [],
