@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-26T17:23:01Z",
+  "updated": "2026-06-26T21:51:19Z",
   "source": "openfootball",
   "matches": [
     {
@@ -622,6 +622,32 @@
         "ft": [
           3,
           2
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Norway",
+      "team2": "France",
+      "date": "2026-06-26",
+      "score": {
+        "ft": [
+          1,
+          4
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Senegal",
+      "team2": "Iraq",
+      "date": "2026-06-26",
+      "score": {
+        "ft": [
+          5,
+          0
         ]
       },
       "goals1": [],
