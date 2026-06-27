@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-26T21:51:19Z",
+  "updated": "2026-06-27T08:11:35Z",
   "source": "openfootball",
   "matches": [
     {
@@ -524,6 +524,32 @@
       "goals2": []
     },
     {
+      "team1": "Egypt",
+      "team2": "Iran",
+      "date": "2026-06-26",
+      "score": {
+        "ft": [
+          1,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "New Zealand",
+      "team2": "Belgium",
+      "date": "2026-06-26",
+      "score": {
+        "ft": [
+          1,
+          5
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
       "team1": "Spain",
       "team2": "Cape Verde",
       "date": "2026-06-15",
@@ -570,6 +596,32 @@
         "ft": [
           2,
           2
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Cape Verde",
+      "team2": "Saudi Arabia",
+      "date": "2026-06-26",
+      "score": {
+        "ft": [
+          0,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Uruguay",
+      "team2": "Spain",
+      "date": "2026-06-26",
+      "score": {
+        "ft": [
+          0,
+          1
         ]
       },
       "goals1": [],
