@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-27T21:39:24Z",
+  "updated": "2026-06-27T23:09:41Z",
   "source": "openfootball",
   "matches": [
     {
@@ -855,6 +855,32 @@
       "score": {
         "ft": [
           0,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Panama",
+      "team2": "England",
+      "date": "2026-06-27",
+      "score": {
+        "ft": [
+          0,
+          2
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Croatia",
+      "team2": "Ghana",
+      "date": "2026-06-27",
+      "score": {
+        "ft": [
+          2,
           1
         ]
       },
