@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-30T18:19:54Z",
+  "updated": "2026-06-30T20:30:51Z",
   "source": "openfootball",
   "matches": [
     {
@@ -986,6 +986,19 @@
         "ft": [
           2,
           1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Ivory Coast",
+      "team2": "Norway",
+      "date": "2026-06-30",
+      "score": {
+        "ft": [
+          1,
+          2
         ]
       },
       "goals1": [],
