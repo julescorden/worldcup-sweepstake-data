@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-06-29T23:35:34Z",
+  "updated": "2026-06-30T04:12:38Z",
   "source": "openfootball",
   "matches": [
     {
@@ -955,6 +955,19 @@
     {
       "team1": "Germany",
       "team2": "Paraguay",
+      "date": "2026-06-29",
+      "score": {
+        "ft": [
+          1,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Netherlands",
+      "team2": "Morocco",
       "date": "2026-06-29",
       "score": {
         "ft": [
