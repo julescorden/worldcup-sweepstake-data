@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-07-01T17:30:10Z",
+  "updated": "2026-07-01T20:04:22Z",
   "source": "openfootball",
   "matches": [
     {
@@ -1025,6 +1025,19 @@
         "ft": [
           2,
           0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "England",
+      "team2": "DR Congo",
+      "date": "2026-07-01",
+      "score": {
+        "ft": [
+          2,
+          1
         ]
       },
       "goals1": [],
