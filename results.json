@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-07-01T23:52:19Z",
+  "updated": "2026-07-02T04:08:05Z",
   "source": "openfootball",
   "matches": [
     {
@@ -1038,6 +1038,19 @@
         "ft": [
           2,
           1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "United States",
+      "team2": "Bosnia and Herzegovina",
+      "date": "2026-07-01",
+      "score": {
+        "ft": [
+          2,
+          0
         ]
       },
       "goals1": [],
