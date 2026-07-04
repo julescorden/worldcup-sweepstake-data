@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-07-04T00:11:39Z",
+  "updated": "2026-07-04T04:21:27Z",
   "source": "openfootball",
   "matches": [
     {
@@ -1102,6 +1102,32 @@
       "score": {
         "ft": [
           2,
+          0
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Cape Verde",
+      "date": "2026-07-03",
+      "score": {
+        "ft": [
+          1,
+          1
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Colombia",
+      "team2": "Ghana",
+      "date": "2026-07-03",
+      "score": {
+        "ft": [
+          1,
           0
         ]
       },
