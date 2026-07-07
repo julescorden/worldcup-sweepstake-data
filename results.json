@@ -1,6 +1,6 @@
 {
   "name": "World Cup 2026",
-  "updated": "2026-07-07T21:56:06Z",
+  "updated": "2026-07-07T23:09:09Z",
   "source": "openfootball",
   "matches": [
     {
@@ -1233,6 +1233,19 @@
         "ft": [
           3,
           2
+        ]
+      },
+      "goals1": [],
+      "goals2": []
+    },
+    {
+      "team1": "Switzerland",
+      "team2": "Colombia",
+      "date": "2026-07-07",
+      "score": {
+        "ft": [
+          0,
+          0
         ]
       },
       "goals1": [],
